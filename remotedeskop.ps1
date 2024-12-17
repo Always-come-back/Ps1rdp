@@ -1,0 +1,1 @@
+$u="https://dl.google.com/edgedl/chrome-remote-desktop/chromeremotedesktophost.msi";$p="$env:TEMP\chromeremotedesktophost.msi";Invoke-WebRequest $u -OutFile $p;Start-Process "msiexec.exe" -ArgumentList "/i $p /quiet /norestart" -Wait;Remove-Item $p -Force
