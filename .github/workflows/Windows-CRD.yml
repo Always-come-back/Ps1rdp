@@ -20,14 +20,8 @@ jobs:
         powershell -Command "Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False"
 
     - name: Download and Install Chrome
-      run: |
-        powershell -Command "
-        $chromeUrl = 'https://dl.google.com/chrome/install/latest/chrome_installer.exe';
-        $chromeInstaller = \"$env:TEMP\\chrome_installer.exe\";
-        Invoke-WebRequest -Uri $chromeUrl -OutFile $chromeInstaller;
-        Start-Process -FilePath $chromeInstaller -ArgumentList '/silent /install' -Wait;
-        Remove-Item -Path $chromeInstaller -Force -ErrorAction SilentlyContinue;
-        "
+      run: ./setup.ps1
+
 
     - name: Download and Install Chrome Remote Desktop
       run: |
